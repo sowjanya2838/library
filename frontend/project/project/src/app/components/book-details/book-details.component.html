@@ -1,0 +1,15 @@
+<div class="container fulid mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <img [src]="book.imageUrl" [alt]="book.imageUrl" width="200px" />
+        </div>
+        <div class="col-4">
+            <h3>{{book.bookName}}</h3>
+
+            <p>{{book.bookPrice|currency:"INR"}}</p>
+
+            <button (click)="addToCart(book)" class="btn btn-primary">addToCart</button>
+
+        </div>
+    </div>
+</div>

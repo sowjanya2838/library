@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <app-book-category-menu></app-book-category-menu>
+        <app-search></app-search>
+      </ul>
+      <ul>
+        <app-cart-status></app-cart-status>
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div *ngFor="let book of books" class="col-4">
+      <div class="card mb-3">
+        <img [src]="book.imageUrl" class="card-img-top" alt="{{ book.bookName }} Image" style="width: 150px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.bookName }}</h5>
+          <p class="card-text">{{ book.bookPrice | currency : 'INR' }}</p>
+          
+          
+
+          <button (click)="addToCart(book)" class="btn btn-primary">addToCart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="books.length === 0" class="alert alert-warning">No products found</div>
+</div>
